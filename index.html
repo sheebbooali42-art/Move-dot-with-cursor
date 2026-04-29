@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: antiquewhite;
+            cursor: none;
+        }
+
+        .dot {
+            height: 60px;
+            width: 60px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.querySelector("body").addEventListener(
+            "mousemove",
+            function (e) {
+                var r = Math.floor(Math.random() * 256);
+                var g = Math.floor(Math.random() * 256);
+                var b = Math.floor(Math.random() * 256);
+                var dot = document.createElement("div");
+                dot.classList.add("dot")
+                dot.style.left = e.clientX + "px";
+                dot.style.top = e.clientY + "px";
+                dot.style.background = `rgb(${r}, ${g}, ${b})`;
+
+                document.querySelector("body").appendChild(dot);
+            }
+        )
+        document.querySelector("body").addEventListener(
+            "contextmenu",
+            function (e) {
+                e.preventDefault();
+            }
+        )
+    </script>
+</body>
+
+</html>
